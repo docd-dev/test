@@ -2,26 +2,298 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .loader {
+    @apply !border-r-transparent;
+    animation: loader-rotate 1s linear infinite;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @supports (
+    (-webkit-backdrop-filter: blur(0px)) or (backdrop-filter: blur(0px))
+  ) {
+    header {
+      @apply backdrop-blur-xl bg-[rgba(0,0,0,0.8)];
+    }
+  }
+
+  @supports not (
+    (-webkit-backdrop-filter: blur(0px)) or (backdrop-filter: blur(0px))
+  ) {
+    header {
+      @apply bg-[#030712];
+    }
+  }
+
+  header {
+    @apply text-[#9ca3af];
+
+    .nav-link {
+      @apply relative;
+      &:hover {
+        @apply bg-[#111827];
+      }
+    }
+  }
+
+  header .nav-link-active-indicator {
+    display: none;
+  }
+
+  header .nav-link.next-link-active {
+    --tw-text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+  }
+
+  header .nav-link.next-link-active .nav-link-active-indicator {
+    --tw-translate-x: -50%;
+    --tw-text-opacity: 1;
+    bottom: 0.25rem;
+    color: #fbb83b;
+    color: rgba(251, 184, 59, var(--tw-text-opacity));
+    display: block;
+    height: 0.25rem;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, var(--tw-translate-y)) rotate(var(--tw-rotate))
+      skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+      scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .nav-link {
+    align-items: center;
+    border-radius: 9999px;
+    height: 100%;
+    justify-content: center;
+    padding: 1.25rem 0.75rem;
+    position: relative;
+    transition-duration: 0.15s;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (min-width: 1280px) {
+    .nav-link {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
+  .bg-accent-yellow-base {
+    --tw-bg-opacity: 1;
+    background-color: #fbb83b;
+    background-color: rgba(251, 184, 59, var(--tw-bg-opacity));
+  }
+  .bg-accent-yellow-darken:hover {
+    --tw-bg-opacity: 1;
+    background-color: #fbaf23;
+    background-color: rgba(251, 175, 35, var(--tw-bg-opacity));
+  }
+
+  .text-accent-yellow-base {
+    @apply text-[#fbb83b];
+  }
+
+  .bg-accent-yellow-lighten {
+    @apply bg-[#fcc155];
+  }
+
+  .font-heading {
+    @apply font-barlow font-extrabold;
+  }
+
+  .hero-links-card {
+    align-items: center;
+    border-radius: 1rem;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+
+  .hero-links-card .hero-links-content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+  }
+
+  .hero-links-card .hero-links-content .hero-links-title {
+    @apply text-white font-barlow font-extrabold text-2xl;
+  }
+
+  @media (min-width: 640px) {
+    .hero-links-card .hero-links-content .hero-links-title {
+      @apply text-3xl;
+    }
+  }
+
+  .hero-links-card .hero-links-content .hero-links-description {
+    @apply text-[#d1d5db] text-xs;
+  }
+
+  @media (min-width: 640px) {
+    .hero-links-card .hero-links-content .hero-links-description {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-links-card .hero-links-content .hero-links-description {
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      overflow: hidden;
+    }
+  }
+
+  .hero-links-card .hero-links-button {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+    align-items: center;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+    border-radius: 9999px;
+    color: #000;
+    color: rgba(0, 0, 0, var(--tw-text-opacity));
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    width: 5rem;
+  }
+
+  .hero-links-card .hero-links-button:hover {
+    --tw-scale-x: 1.05;
+    --tw-scale-y: 1.05;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(1.05) scaleY(1.05);
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .hero-links-card .hero-links-button:active {
+    --tw-scale-x: 0.95;
+    --tw-scale-y: 0.95;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(0.95) scaleY(0.95);
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  @media (min-width: 1800px) {
+    .hero-links-card .hero-links-button {
+      @apply w-24;
+    }
+  }
+
+  #hero-gallery img {
+    --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+      0 2px 4px -2px var(--tw-shadow-color);
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+    box-shadow: 0 0 transparent, 0 0 transparent,
+      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 transparent),
+      var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow);
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: 100%;
+  }
+
+  #hero-gallery img:hover {
+    --tw-rotate: 2deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(2deg) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .from-accent-yellow-base {
+    @apply bg-gradient-to-r from-[#fbb83b] to-[rgba(251,184,59,0)];
+  }
+
+  /* footer */
+
+  .footer-link-container {
+    @apply flex flex-col col-span-1;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-link-container {
+      @apply col-span-2;
+    }
+  }
+
+  .footer-link-container .footer-link-label {
+    @apply text-white font-bold text-base;
+  }
+
+  @media (min-width: 640px) {
+    .footer-link-container .footer-link-label {
+      @apply text-lg;
+    }
+  }
+
+  .footer-link-container .footer-link-list {
+    @apply flex flex-col text-sm mt-4 gap-y-4;
+  }
+
+  .footer-link-container .footer-link-list a {
+    transition-duration: 0.15s;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .footer-link-container .footer-link-list a:hover {
+    @apply text-white;
+  }
+
+  /* animation */
+  @keyframes loader-rotate {
+    0% {
+      transform: rotate(0);
+    }
+
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes spin-clockwise {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes spin-anticlockwise {
+    to {
+      transform: rotate(-1turn);
+    }
+  }
 }
