@@ -21,6 +21,7 @@ import {
   ArrowRightIcon,
 } from "@/components/ui/SvgIcon";
 import { brandLogo, brandName } from "@/dummy/brand";
+import { adBanners } from "@/dummy/banner";
 
 export const HomeContent = ({}) => {
   return (
@@ -295,6 +296,39 @@ export const HomeContent = ({}) => {
             </div>
           </div>
         </section>
+
+        <div id="ad-banner" className="swiper pt-16 lg:pt-24">
+          <Swiper
+            slidesPerView={"auto"}
+            freeMode={true}
+            modules={[FreeMode, Pagination]}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            className="group !py-10 lg:!py-16 slider-with-margin-on-first-and-last-item cursor-grab"
+          >
+            {adBanners.map((e, key) => (
+              <SwiperSlide
+                data-v-787f3024
+                key={key}
+                className="slide-item relative flex flex-col gap-y-3"
+              >
+                <a
+                  href="https://widget.loket.com/widget/yfclp8ax1dizwjoea"
+                  target="_blank"
+                >
+                  <img
+                    src={e}
+                    alt={"ad banner"}
+                    loading="lazy"
+                    className="banner-slide-img"
+                  />
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </>
   );

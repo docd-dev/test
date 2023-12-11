@@ -250,6 +250,22 @@
     --smooth-corners: 4;
   }
 
+  .slide-item[data-v-787f3024] {
+    @apply ml-2 w-[90%] sm:w-full sm:max-w-[500px] xl:max-w-[640px];
+    margin-left: 0.5rem;
+  }
+
+  .banner-slide-img {
+    @apply aspect-video rounded-md w-full h-full object-cover pointer-events-none select-none;
+  }
+
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    @apply !bg-[#fbb83b] !opacity-100 !w-4;
+  }
+  .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+    @apply !bg-[#4b5563] !opacity-100;
+  }
+
   /* animation */
   @keyframes loader-rotate {
     0% {
