@@ -197,8 +197,8 @@ export const HomeContent = ({}) => {
                 bulletClass: "!bottom-0 lg:hidden",
               }}
               navigation={{
-                prevEl: ".btn-prev",
-                nextEl: ".btn-next",
+                prevEl: "#rundown-slider .btn-prev",
+                nextEl: "#rundown-slider .btn-next",
                 disabledClass: "swiper-button-disabled",
               }}
               modules={[FreeMode, Pagination, Navigation]}
@@ -216,6 +216,61 @@ export const HomeContent = ({}) => {
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            <div className="container flex flex-col items-center gap-6 mt-5 lg:mt-10">
+              <div className="hidden lg:flex gap-x-3 items-center justify-center">
+                <button
+                  className="slider-nav-btn btn-prev"
+                  tabIndex={-1}
+                  role="button"
+                  aria-label="Previous slide"
+                  aria-disabled="true"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="fill-current h-4"
+                  >
+                    <path d="M14.9993 20.67C14.8093 20.67 14.6193 20.6 14.4693 20.45L7.9493 13.93C6.8893 12.87 6.8893 11.13 7.9493 10.07L14.4693 3.55002C14.7593 3.26002 15.2393 3.26002 15.5293 3.55002C15.8193 3.84002 15.8193 4.32002 15.5293 4.61002L9.0093 11.13C8.5293 11.61 8.5293 12.39 9.0093 12.87L15.5293 19.39C15.8193 19.68 15.8193 20.16 15.5293 20.45C15.3793 20.59 15.1893 20.67 14.9993 20.67Z"></path>
+                  </svg>
+                </button>
+                <button
+                  className="slider-nav-btn btn-next"
+                  tabIndex={-1}
+                  role="button"
+                  aria-label="Next slide"
+                  aria-disabled="false"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="fill-current h-4"
+                  >
+                    <path d="M8.90961 20.67C8.71961 20.67 8.52961 20.6 8.37961 20.45C8.08961 20.16 8.08961 19.68 8.37961 19.39L14.8996 12.87C15.3796 12.39 15.3796 11.61 14.8996 11.13L8.37961 4.61002C8.08961 4.32002 8.08961 3.84002 8.37961 3.55002C8.66961 3.26002 9.14961 3.26002 9.43961 3.55002L15.9596 10.07C16.4696 10.58 16.7596 11.27 16.7596 12C16.7596 12.73 16.4796 13.42 15.9596 13.93L9.43961 20.45C9.28961 20.59 9.09961 20.67 8.90961 20.67Z"></path>
+                  </svg>
+                </button>
+              </div>
+              <a
+                href="/guests"
+                className="py-4 pl-4 pr-3 rounded-full hover:bg-gray-900 text-white flex items-center justify-center gap-x-1 transition-colors duration-300"
+                data-v-wave-boundary="true"
+              >
+                <span className="tracking-tight text-xs sm:text-sm">
+                  View rundown
+                </span>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="-rotate-45 h-4"
+                >
+                  <path d="M14.4291 18.8201C14.2391 18.8201 14.0491 18.7501 13.8991 18.6001C13.6091 18.3101 13.6091 17.8301 13.8991 17.5401L19.4391 12.0001L13.8991 6.46012C13.6091 6.17012 13.6091 5.69012 13.8991 5.40012C14.1891 5.11012 14.6691 5.11012 14.9591 5.40012L21.0291 11.4701C21.3191 11.7601 21.3191 12.2401 21.0291 12.5301L14.9591 18.6001C14.8091 18.7501 14.6191 18.8201 14.4291 18.8201Z"></path>
+                  <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z"></path>
+                </svg>
+              </a>
+            </div>
           </div>
         </section>
       </div>
