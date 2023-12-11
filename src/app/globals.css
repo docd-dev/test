@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --smooth-corners: X[, Y];
+  }
+}
+
 @layer components {
   .loader {
     @apply !border-r-transparent;
@@ -208,6 +214,40 @@
 
   #rundown-slider .slider-nav-btn:active {
     @apply scale-95;
+  }
+
+  #brands-slider .slide-item {
+    @apply mr-4 w-[80px] sm:w-[80px] xl:mr-6 xl:w-[100px] 1.5xl:w-[150px];
+  }
+
+  #brands-slider .slide-item:nth-last-of-type(2) {
+    @apply !mr-0;
+  }
+
+  @supports (
+    (-webkit-mask-image: paint(smooth-corners)) or
+      (mask-image: paint(smooth-corners))
+  ) {
+    .smooth-corners {
+      @apply [mask-image:paint(smooth-corners)] [-webkit-mask-image:paint(smooth-corners)];
+    }
+
+    .smooth-corners > a {
+      @apply z-20;
+    }
+
+    .smooth-corners,
+    .smooth-corners > a {
+      @apply !rounded-none;
+    }
+  }
+
+  .sc-3 {
+    --smooth-corners: 3;
+  }
+
+  .sc-4 {
+    --smooth-corners: 4;
   }
 
   /* animation */

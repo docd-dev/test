@@ -12,7 +12,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { FreeMode, Pagination, Navigation } from "swiper/modules";
+import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 import { guestStar } from "@/dummy/guest";
 import { rundown } from "@/dummy/rundownd";
 import {
@@ -20,6 +20,7 @@ import {
   ArrowRightCornerIcon,
   ArrowRightIcon,
 } from "@/components/ui/SvgIcon";
+import { brandLogo, brandName } from "@/dummy/brand";
 
 export const HomeContent = ({}) => {
   return (
@@ -244,7 +245,40 @@ export const HomeContent = ({}) => {
           </div>
 
           <div className="mt-6 lg:mt-10">
-            <div className="swiper"></div>
+            <div id="brands-slider" className="swiper">
+              <Swiper
+                slidesPerView={"auto"}
+                freeMode={true}
+                modules={[FreeMode, Autoplay]}
+                className="group cursor-grab"
+                wrapperClass="!ease-linear"
+                autoplay={{
+                  delay: 2000,
+                }}
+              >
+                {brandLogo.map((e, key) => (
+                  <SwiperSlide
+                    key={key}
+                    className="slide-item relative flex flex-col items-center text-center gap-y-3 swiper-slide-duplicate"
+                  >
+                    <div className="aspect-square w-full flex items-center justify-center bg-white text-black overflow-hidden smooth-corners sc-3">
+                      <img
+                        src={e}
+                        alt={brandName[key]}
+                        loading="lazy"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <span
+                      data-v-4b3c4590=""
+                      className="text-white tracking-tight text-xs sm:text-sm line-clamp-2"
+                    >
+                      {brandName[key]}
+                    </span>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
             <div className="container flex flex-col items-center mt-5 lg:mt-10">
               <a
                 href="/tenants"

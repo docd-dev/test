@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import Script from "next/script";
 
 const plus = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["400"] });
 
@@ -38,6 +39,9 @@ export default function RootLayout({
           {children}
         </main>
       </body>
+      <Script id="smooth-corner">
+        {`if (CSS && 'paintWorklet' in CSS) CSS.paintWorklet.addModule('https://unpkg.com/smooth-corners')`}
+      </Script>
     </html>
   );
 }
