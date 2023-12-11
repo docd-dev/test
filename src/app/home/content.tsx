@@ -23,6 +23,7 @@ import {
 import { brandLogo, brandName } from "@/dummy/brand";
 import { adBanners } from "@/dummy/banner";
 import { PortofolioReview } from "@/components/layouts/partials/portofolio";
+import { MeetAndGreet } from "@/components/layouts/partials/meet-and-greet";
 
 export const HomeContent = ({}) => {
   return (
@@ -338,6 +339,30 @@ export const HomeContent = ({}) => {
         <PortofolioReview />
 
         {/* meet and greet */}
+        <MeetAndGreet />
+
+        {/* part of icc */}
+        <section data-v-e21225e4="" id="join-icc" className="pt-16 lg:pt-24">
+          <div data-v-e21225e4="" className="container">
+            <h2
+              data-v-e21225e4=""
+              className="font-barlow font-extrabold uppercase flex flex-col items-center text-center !leading-[0.9] text-[18vw] xs:text-[16vw] md:text-[14vw] lg:text-[8vw] xl:text-[8vw] 2xl:text-[8vw]"
+            >
+              <span
+                data-v-e21225e4=""
+                className="text-transparent bg-clip-text bg-gradient-to-r from-white/40 via-white/100 to-white/40"
+              >
+                BE PART OF
+              </span>
+              <span data-v-e21225e4="" className="text-red-500">
+                INDONESIA COMIC CON
+              </span>
+              <span data-v-e21225e4="" className="text-accent-yellow-base">
+                2023
+              </span>
+            </h2>
+          </div>
+        </section>
       </div>
     </>
   );
