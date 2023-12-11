@@ -117,10 +117,7 @@
   }
 
   .hero-links-card .hero-links-content {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.5rem;
+    @apply flex flex-col items-start gap-y-2;
   }
 
   .hero-links-card .hero-links-content .hero-links-title {
@@ -139,59 +136,28 @@
 
   @media (min-width: 640px) {
     .hero-links-card .hero-links-content .hero-links-description {
-      font-size: 0.875rem;
-      line-height: 1.25rem;
+      @apply text-sm;
     }
   }
 
   @media (min-width: 1024px) {
     .hero-links-card .hero-links-content .hero-links-description {
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      display: -webkit-box;
-      overflow: hidden;
+      @apply line-clamp-2;
     }
   }
 
   .hero-links-card .hero-links-button {
-    --tw-bg-opacity: 1;
-    --tw-text-opacity: 1;
-    align-items: center;
-    aspect-ratio: 1/1;
-    background-color: #fff;
-    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-    border-radius: 9999px;
-    color: #000;
-    color: rgba(0, 0, 0, var(--tw-text-opacity));
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    transition-duration: 0.3s;
-    transition-property: transform;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    width: 5rem;
+    @apply flex shrink-0 items-center justify-center bg-[#fff] text-[#000] aspect-square rounded-full w-20 transition-transform duration-300;
   }
 
   .hero-links-card .hero-links-button:hover {
+    @apply scale-105;
     --tw-scale-x: 1.05;
     --tw-scale-y: 1.05;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-      scaleX(1.05) scaleY(1.05);
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .hero-links-card .hero-links-button:active {
-    --tw-scale-x: 0.95;
-    --tw-scale-y: 0.95;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-      scaleX(0.95) scaleY(0.95);
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    @apply scale-95;
   }
 
   @media (min-width: 1800px) {
@@ -201,36 +167,12 @@
   }
 
   #hero-gallery img {
-    --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
-      0 2px 4px -2px var(--tw-shadow-color);
-    aspect-ratio: 16/9;
-    border-radius: 1rem;
-    box-shadow: 0 0 transparent, 0 0 transparent,
-      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 transparent),
-      var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow);
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    transition-duration: 0.3s;
-    transition-property: transform;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    width: 100%;
+    @apply aspect-video rounded-2xl h-full object-cover select-none w-full shadow-md transition-transform duration-300;
   }
 
   #hero-gallery img:hover {
+    @apply rotate-2;
     --tw-rotate: 2deg;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-      rotate(2deg) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-      rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-      scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .from-accent-yellow-base {
@@ -240,23 +182,11 @@
   /* footer */
 
   .footer-link-container {
-    @apply flex flex-col col-span-1;
-  }
-
-  @media (min-width: 1024px) {
-    .footer-link-container {
-      @apply col-span-2;
-    }
+    @apply flex flex-col col-span-1 lg:col-span-2;
   }
 
   .footer-link-container .footer-link-label {
-    @apply text-white font-bold text-base;
-  }
-
-  @media (min-width: 640px) {
-    .footer-link-container .footer-link-label {
-      @apply text-lg;
-    }
+    @apply text-white font-bold text-base sm:text-lg;
   }
 
   .footer-link-container .footer-link-list {
@@ -264,14 +194,43 @@
   }
 
   .footer-link-container .footer-link-list a {
-    transition-duration: 0.15s;
-    transition-property: color, background-color, border-color,
-      text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    @apply transition-colors;
   }
 
   .footer-link-container .footer-link-list a:hover {
     @apply text-white;
+  }
+
+  /* guest star */
+  .title-guest-stars > span {
+    @apply font-barlow font-extrabold bg-clip-text text-transparent text-[18vw] !leading-[1.1] uppercase xs:text-[16vw] md:text-[14vw] lg:text-[15vw] 1.5xl:text-[14vw];
+  }
+
+  #guest-slider .slide-item {
+    @apply aspect-[4/5] !w-[200px] lg:!w-[280px] xl:!w-[320px] 1.5xl:!w-[340px] 3xl:!w-[360px];
+  }
+
+  #guest-slider .slide-item:not(:first-child) {
+    @apply ml-2;
+  }
+
+  #guest-slider .slider-nav-btn {
+    @apply flex justify-center items-center h-14 text-[#d1d5db] bg-[#111827] aspect-square rounded-full transition-all duration-200;
+  }
+
+  #guest-slider .slider-nav-btn:active {
+    @apply scale-95;
+  }
+
+  .slider-with-margin-on-first-and-last-item .slide-item:first-child {
+    @apply shrink-0 ml-4 xs:ml-[calc(50%-270px+1rem)] sm:ml-[calc(50%-320px+1rem)] md:ml-[calc(50%-384px+1rem)] lg:ml-[calc(50%-512px+1rem)] xl:ml-[calc(50%-640px+1rem)] 1.5xl:ml-[calc(50%-750px+1rem)] 3xl:ml-[calc(50%-900px+3rem)];
+  }
+  .slider-with-margin-on-first-and-last-item .slide-item:last-child {
+    @apply shrink-0 mr-4 xs:mr-[calc(50%-270px+1rem)] sm:mr-[calc(50%-320px+1rem)] md:mr-[calc(50%-384px+1rem)] lg:mr-[calc(50%-512px+1rem)] xl:mr-[calc(50%-640px+1rem)] 1.5xl:mr-[calc(50%-750px+1rem)] 3xl:mr-[calc(50%-900px+3rem)];
+  }
+
+  .swiper-button-disabled {
+    @apply !opacity-50 !pointer-events-auto;
   }
 
   /* animation */

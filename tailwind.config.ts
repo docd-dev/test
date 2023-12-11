@@ -42,6 +42,11 @@ const config: Config = {
         "spin-clockwise": "spin-clockwise 10s linear infinite",
         "spin-anticlockwise": "spin-anticlockwise 8s linear infinite",
       },
+      screens: {
+        "1.5xl": "1500px",
+        "3xl": "1800px",
+        xs: "540px",
+      },
     },
   },
   plugins: [],
