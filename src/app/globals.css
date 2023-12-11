@@ -266,6 +266,34 @@
     @apply !bg-[#4b5563] !opacity-100;
   }
 
+  .from-accent-yellow-darken {
+    @apply from-[#fbaf23];
+  }
+
+  .application-card-border {
+    @apply bg-gradient-to-r rounded-3xl p-[1px];
+  }
+
+  .application-card {
+    @apply flex items-center rounded-3xl gap-x-4 py-6 pl-6 justify-between bg-gradient-to-r from-[#111827] to-[#030712] sm:px-10;
+  }
+
+  .application-card .application-content {
+    @apply flex flex-col items-start gap-y-2;
+  }
+
+  .application-card .application-content .application-title {
+    @apply text-white font-barlow font-extrabold text-3xl sm:text-4xl;
+  }
+
+  .application-card .application-content .application-description {
+    @apply text-[#d1d5db] text-xs leading-normal sm:text-sm sm:leading-normal;
+  }
+
+  .application-card .application-button {
+    @apply w-20 flex shrink-0 items-center justify-center bg-white aspect-square text-black rounded-full transition-transform duration-300 hover:scale-105 active:scale-95 sm:w-24;
+  }
+
   /* animation */
   @keyframes loader-rotate {
     0% {
