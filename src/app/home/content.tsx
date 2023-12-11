@@ -209,8 +209,8 @@ export const HomeContent = ({}) => {
                   <Image
                     src={e.img}
                     alt={e.name}
-                    width={100}
-                    height={100}
+                    width={500}
+                    height={625}
                     className="w-full h-full object-contain"
                   />
                 </SwiperSlide>
