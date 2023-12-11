@@ -305,6 +305,8 @@ export const HomeContent = ({}) => {
             pagination={{
               clickable: true,
               dynamicBullets: true,
+              bulletClass: "swiper-pagination-bullet",
+              bulletActiveClass: "swiper-pagination-bullet-active",
             }}
             className="group !py-10 lg:!py-16 slider-with-margin-on-first-and-last-item cursor-grab"
           >

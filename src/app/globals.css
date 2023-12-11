@@ -260,7 +260,7 @@
   }
 
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    @apply !bg-[#fbb83b] !opacity-100 !w-4;
+    @apply !bg-[#fbb83b] !opacity-100 !w-4 !rounded-md;
   }
   .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
     @apply !bg-[#4b5563] !opacity-100;
