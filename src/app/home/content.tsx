@@ -252,9 +252,11 @@ export const HomeContent = ({}) => {
                 modules={[FreeMode, Autoplay]}
                 className="group cursor-grab"
                 wrapperClass="!ease-linear"
+                loop
                 autoplay={{
-                  delay: 2000,
+                  delay: 0,
                 }}
+                speed={2500}
               >
                 {brandLogo.map((e, key) => (
                   <SwiperSlide
