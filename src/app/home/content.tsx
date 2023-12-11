@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/SvgIcon";
 import { brandLogo, brandName } from "@/dummy/brand";
 import { adBanners } from "@/dummy/banner";
+import { PortofolioReview } from "@/components/layouts/partials/portofolio";
 
 export const HomeContent = ({}) => {
   return (
@@ -297,6 +298,7 @@ export const HomeContent = ({}) => {
           </div>
         </section>
 
+        {/* add banner */}
         <div id="ad-banner" className="swiper pt-16 lg:pt-24">
           <Swiper
             slidesPerView={"auto"}
@@ -331,6 +333,11 @@ export const HomeContent = ({}) => {
             ))}
           </Swiper>
         </div>
+
+        {/* porto review */}
+        <PortofolioReview />
+
+        {/* meet and greet */}
       </div>
     </>
   );
