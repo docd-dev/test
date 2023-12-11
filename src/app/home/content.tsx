@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import { guestStar } from "@/dummy/guest";
+import { rundown } from "@/dummy/rundownd";
 
 export const HomeContent = ({}) => {
   return (
@@ -176,6 +177,45 @@ export const HomeContent = ({}) => {
                 </svg>
               </a>
             </div>
+          </div>
+        </section>
+
+        {/* rundown section */}
+        <section id="rundown-section" className="pt-16 lg:pt-24">
+          <div className="container">
+            <h2 className="font-barlow font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-white/40 to-white/100 !leading-[1.1] text-[18vw] xs:text-[16vw] md:text-[14vw] lg:text-[15vw] xl:text-[15vw] 2xl:text-[14vw] text-center">
+              Rundown
+            </h2>
+          </div>
+          <div id="rundown-slider" className="swiper w-full mt-6 lg:mt-10">
+            <Swiper
+              slidesPerView={"auto"}
+              freeMode={true}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+                bulletClass: "!bottom-0 lg:hidden",
+              }}
+              navigation={{
+                prevEl: ".btn-prev",
+                nextEl: ".btn-next",
+                disabledClass: "swiper-button-disabled",
+              }}
+              modules={[FreeMode, Pagination, Navigation]}
+              className="!pb-12 lg:!pb-0 slider-with-margin-on-first-and-last-item cursor-grab"
+            >
+              {rundown.map((e, key) => (
+                <SwiperSlide key={key} className="slide-item">
+                  <Image
+                    src={e.img}
+                    alt={e.name}
+                    width={100}
+                    height={100}
+                    className="w-full h-full object-contain"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </section>
       </div>

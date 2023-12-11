@@ -194,6 +194,22 @@
     @apply !opacity-50 !pointer-events-auto;
   }
 
+  #rundown-slider .slide-item {
+    @apply aspect-[4/5] !w-[90%] xs:!w-4/5 sm:!w-[70%] lg:!w-[500px];
+  }
+
+  #rundown-slider .slide-item:not(:first-of-type) {
+    @apply ml-2;
+  }
+
+  #rundown-slider .slider-nav-btn {
+    @apply flex justify-center items-center h-14 text-[#d1d5db] bg-[#111827] aspect-square rounded-full transition-all duration-200;
+  }
+
+  #rundown-slider .slider-nav-btn:active {
+    @apply scale-95;
+  }
+
   /* animation */
   @keyframes loader-rotate {
     0% {
